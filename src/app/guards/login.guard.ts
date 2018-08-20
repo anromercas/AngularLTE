@@ -5,8 +5,7 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/take';
 
-import { UserService } from '../../services/user.service';
-import { Global } from '../../services/global';
+import { UserService } from '../services/user.service';
 
 @Injectable({
   providedIn: 'root'
