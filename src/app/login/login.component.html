@@ -1,0 +1,57 @@
+<div class="login-box">
+  <div class="login-logo">
+    <a [routerLink]="['']">
+      <h1 class="head-title">
+        <img src="../assets/images/Acerinox.png">
+        <br>
+        <b>{{title}}</b>
+      </h1>
+      <!-- Acerinox</b>MTP -->
+    </a>
+  </div>
+  <!-- /.login-logo -->
+  <div class="login-box-body">
+    <h3 class="login-box-msg">Iniciar sesión</h3>
+    <div *ngIf="errorMessage">
+      <div class="alert alert-info" role="alert">
+        <strong>Error!</strong> {{errorMessage}}
+      </div>
+    </div>
+    <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group has-feedback">
+        <input #email="ngModel" [(ngModel)]="user.email" type="email" name="email" class="form-control" placeholder="Email" required
+          autofocus>
+        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+        <span class="invalid-feedback" *ngIf="!email.valid && email.touched">El Email es obligatorio</span>
+      </div>
+
+      <div class="form-group has-feedback">
+        <input #password="ngModel" [(ngModel)]="user.password" type="password" name="password" class="form-control" placeholder="Contraseña"
+          required>
+        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        <span class="invalid-feedback" *ngIf="!password.valid && password.touched">La contraseña es obligatoria</span>
+      </div>
+      <div class="row">
+        <div class="col-xs-8"></div>
+        <!-- /.col -->
+        <div class="col-xs-4">
+          <input type="submit" value="Entrar" class="btn btn-primary btn-block btn-flat btn-lg">
+        </div>
+        <!-- /.col -->
+      </div>
+    </form>
+    <br>
+    <br>
+
+    <!-- /.social-auth-links -->
+
+    <p>
+      <a href="#">He perdido mi contraseña</a>
+    </p>
+    <p>
+      <a [routerLink]='register' class="text-center">Registrar nuevo usuario</a>
+    </p>
+
+  </div>
+  <!-- /.login-box-body -->
+</div>
