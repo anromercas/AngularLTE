@@ -1,3 +1,55 @@
-<p>
-  graficas1 works!
-</p>
+<div class="row">
+  <div class="col-lg-6">
+    <div class="box box-primary">
+      <div class="box-body">   
+          <h4 class="card-tittle" > {{ graficos.grafico1.leyenda }} </h4>
+        <app-doughnut-chart
+        [chartLabels]="graficos.grafico1.labels"
+        [chartData]="graficos.grafico1.data"
+        [chartType]="graficos.grafico1.type"
+        ></app-doughnut-chart>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="box box-primary">
+      <div class="box-body">
+        <h4 class="card-tittle" > {{ graficos.grafico2.leyenda }} </h4>
+        <app-doughnut-chart
+        [chartLabels]="graficos.grafico2.labels"
+        [chartData]="graficos.grafico2.data"
+        [chartType]="graficos.grafico2.type"
+        ></app-doughnut-chart>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-6">
+    <div class="box box-primary">
+      <div class="box-body">
+          <h4 class="card-tittle" > {{ graficos.grafico3.leyenda }} </h4>
+        <app-doughnut-chart
+        [chartLabels]="graficos.grafico3.labels"
+        [chartData]="graficos.grafico3.data"
+        [chartType]="graficos.grafico3.type"
+        ></app-doughnut-chart>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-lg-6">
+    <div class="box box-primary">
+      <div class="box-body">
+          <h4 class="card-tittle" > {{ graficos.grafico4.leyenda }} </h4>
+        <app-doughnut-chart
+        [chartLabels]="graficos.grafico4.labels"
+        [chartData]="graficos.grafico4.data"
+        [chartType]="graficos.grafico4.type"
+        ></app-doughnut-chart>
+      </div>
+    </div>
+  </div>
+</div>

@@ -18,11 +18,13 @@ import { LoginGuard } from './guards/login.guard';
 import { RegisterComponent } from './login/register.component';
 import { LoginComponent } from './login/login.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
