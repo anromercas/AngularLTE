@@ -14,6 +14,7 @@ import { PagesComponent } from './pages.component';
 import { PagesRouterModule } from './pages.routes';
 import { IncrementComponent } from '../components/increment/increment.component';
 import { DoughnutChartComponent } from '../components/doughnut-chart/doughnut-chart.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 @NgModule({
     declarations: [
@@ -22,7 +23,8 @@ import { DoughnutChartComponent } from '../components/doughnut-chart/doughnut-ch
         Graficas1Component,
         ProgressComponent,
         IncrementComponent,
-        DoughnutChartComponent
+        DoughnutChartComponent,
+        AccountSettingsComponent
     ],
     exports: [
         DashboardComponent,

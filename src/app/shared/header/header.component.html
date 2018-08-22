@@ -216,7 +216,7 @@
         </li>
         <!-- User Account: style can be found in dropdown.less -->
         <li class="dropdown user user-menu">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown">
             <img src="{{url + 'get-image-user/' + identity.image}}" class="user-image" alt="">
             <span class="hidden-xs">{{identity.name}}</span>
           </a>
@@ -224,10 +224,7 @@
             <!-- User image -->
             <li class="user-header">
               <img src="{{url + 'get-image-user/' + identity.image}}" class="img-circle" alt="User Image">
-
-              <p>
-                  {{identity.name}}
-              </p>
+              <p>{{identity.name}}</p>
             </li>
             <!-- Menu Body -->
             <li class="user-body">

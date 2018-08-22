@@ -11,6 +11,10 @@ import { RouterModule } from '@angular/router';
 import { PagesModule } from './pages/pages.module';
 import { FormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
+import { ServiceModule } from './services/service.module';
+
+// SERVICIOS
+import { SettingsService } from './services/service.index';
 
 // COMPONENTES
 import { AppComponent } from './app.component';
@@ -34,9 +38,10 @@ import { LoginComponent } from './login/login.component';
     SharedModule,
     AppRoutingModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    ServiceModule
   ],
-  providers: [LoginGuard],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

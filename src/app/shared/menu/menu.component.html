@@ -27,17 +27,33 @@
     <ul class="sidebar-menu" data-widget="tree">
       <li class="header">MENÚ PRINCIPAL</li>
       <li class="active treeview menu-open">
-        <a href="#">
+        <a routerLink="/dashboard">
           <i class="fa fa-dashboard"></i> <span>SDR</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a ><i class="fa fa-circle-o"></i>Crear SDRs</a></li>
-          <li ><a ><i class="fa fa-circle-o"></i> Listado SDR</a></li>
+          <li><a routerLinkActive="active" routerLink="/account-settings" ><i class="fa fa-circle-o"></i>Crear SDRs</a></li>
+          <li ><a routerLinkActive="active" routerLink="/progress"><i  class="fa fa-circle-o"></i> Listado SDR</a></li>
         </ul>
       </li>
+
+      <li class="active treeview menu-open" *ngFor="let menu of _sidebar.menu" >
+          <a routerLink="/dashboard">
+            <i [class]="menu.icono"></i> <span> {{ menu.titulo }} </span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+
+            <li *ngFor="let submenu of menu.submenu" routerLinkActive="active">
+              <a [routerLink]="[ submenu.url ]" >
+                <i [class]="submenu.icono"></i>{{ submenu.titulo }} </a></li>
+            
+          </ul>
+        </li>
 
     </ul>
   </section>

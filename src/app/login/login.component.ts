@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
+
 import { UserService } from '../services/user.service';
 import { User } from '../models/user';
 import { Global } from '../services/global';
@@ -95,7 +96,7 @@ export class LoginComponent implements OnInit {
     localStorage.clear();
     this.identity = null;
     this.token = null;
-    this._router.navigate(['/']);
+    this._router.navigate(['/login']);
   }
 
 }

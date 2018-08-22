@@ -40,7 +40,7 @@ export class HeaderComponent implements OnInit {
     localStorage.clear();
     this.identity = null;
     this.token = null;
-    this._router.navigate(['/']);
+    this._router.navigate(['/login']);
   }
 
 }

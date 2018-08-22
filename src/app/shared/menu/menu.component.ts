@@ -4,6 +4,7 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 import { User } from '../../models/user';
 import { UserService } from '../../services/user.service';
 import { Global } from '../../services/global';
+import { SidebarService } from '../../services/service.index';
 
 @Component({
   selector: 'app-menu',
@@ -25,6 +26,7 @@ export class MenuComponent implements OnInit {
     private _userService: UserService,
     private _route: ActivatedRoute,
     private _router: Router,
+    public _sidebar: SidebarService
   ) {
     this.user = new User('', '', '', '', '', '', 'Lider', '');
     this.url = Global.url;
