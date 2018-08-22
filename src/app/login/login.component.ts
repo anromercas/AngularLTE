@@ -69,7 +69,6 @@ export class LoginComponent implements OnInit {
               }
             },
             error => {
-              // tslint:disable-next-line:prefer-const
               let errorMessage = <any>error;
               const body = JSON.parse(error._body);
               if (errorMessage != null) {
