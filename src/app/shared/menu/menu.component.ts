@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 
-import { User } from '../../models/user';
-import { UserService } from '../../services/user.service';
+import { User } from '../../models/user.model';
+import { UserService } from '../../services/user/user.service';
 import { Global } from '../../services/global';
 import { SidebarService } from '../../services/service.index';
 

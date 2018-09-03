@@ -1,8 +1,8 @@
 <section id="wrapper">
     <div class="login-register" style="background-image:url(../../assets/images/metal.jpg);">
-        <div class="login-box card">
+        <div class="register-box card">
             <div class="card-body">
-                <form class="form-horizontal form-material" id="loginform" action="index.html">
+                <form ngNativeValidate [formGroup]="forma" (ngSubmit)="onSubmitRegister()" class="form-horizontal form-material" id="loginform" action="index.html">
                     <div class="register-logo">
                         <a [routerLink]="['']">
                           <h1 class="head-title">
@@ -20,38 +20,41 @@
                       </div>
                     <div class="form-group">
                         <div class="col-xs-12">
-                            <input type="text" #name="ngModel" [(ngModel)]="user.name" name="name" class="form-control" placeholder="Nombre" required>
+                            <input type="text" formControlName="name" name="name" class="form-control" placeholder="Nombre" required>
                         </div>
                     </div>
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            <input type="text" #surname="ngModel" [(ngModel)]="user.surname" name="surname" class="form-control" placeholder="Apellido" required>
+                            <input type="text" formControlName="surname"  name="surname" class="form-control" placeholder="Apellido" required>
                         </div>
                     </div>
                     <div class="form-group ">
                         <div class="col-xs-12">
-                            <input type="text" #secondsurname="ngModel" [(ngModel)]="user.secondsurname" name="secondsurname" class="form-control" placeholder="Segundo Apellido" required>
+                            <input type="text" formControlName="secondsurname" name="secondsurname" class="form-control" placeholder="Segundo Apellido" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-12">
-                            <input type="email" #email="ngModel" [(ngModel)]="user.email" name="email" class="form-control" placeholder="Email" required>
+                            <input type="email" formControlName="email" name="email" class="form-control" placeholder="Email" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-12">
-                            <input type="password" #password="ngModel" [(ngModel)]="user.password" name="password" class="form-control" placeholder="Contraseña" required>
+                            <input type="password" formControlName="password" name="password" class="form-control" placeholder="Contraseña" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-xs-12">
-                            <input #cpassword="ngModel" [(ngModel)]="user.cpassword" type="password" name="cpassword" class="form-control" placeholder="Confirmar Contraseña" required>
+                            <input type="password" formControlName="password2" name="cpassword" class="form-control" placeholder="Confirmar Contraseña" required>
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group" *ngIf="forma.errors?.sonIguales && !forma.pristine">
+                        <p class="text-red">Las contraseñas deben ser iguales</p>
+                    </div>
+                    <div class="form-group row text-center">
                         <div class="col-md-12">
                             <div class="checkbox checkbox-success p-t-0">
-                                <input id="checkbox-signup" type="checkbox"  class="filled-in chk-col-light-blue">
+                                <input formControlName="terms" id="checkbox-signup" type="checkbox"  class="filled-in chk-col-light-blue">
                                 <label for="checkbox-signup"> Acepto todos los <a href="javascript:void(0)">Terminos</a></label>
                             </div>
                         </div>
@@ -63,7 +66,7 @@
                     </div>
                     <div class="form-group m-b-0">
                         <div class="col-sm-12 text-center">
-                            ¿Tienes una cuenta? <a href="pages-login.html" class="text-info m-l-5"><b>Iniciar Sesión</b></a>
+                            ¿Tienes una cuenta? <a routerLink="/login" class="text-info m-l-5"><b>Iniciar Sesión</b></a>
                         </div>
                     </div>
                 </form>

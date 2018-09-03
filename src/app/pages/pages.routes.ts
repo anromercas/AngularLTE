@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromisesComponent } from './promises/promises.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { LoginGuard } from '../services/service.index';
 
 
 
@@ -15,6 +16,7 @@ const pagesRoutes: Routes = [
     {
         path: '',
         component: PagesComponent,
+        canActivate: [ LoginGuard ],
         children: [
             {path: 'progress', component: ProgressComponent, data: { titulo: 'Progress' } },
             {path: 'graficas1', component: Graficas1Component, data: { titulo: 'Graficas' } },

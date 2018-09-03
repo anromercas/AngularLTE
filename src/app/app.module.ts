@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
 
 // MODULOS
 import { PagesModule } from './pages/pages.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { ServiceModule } from './services/service.module';
 
@@ -18,7 +18,6 @@ import { SettingsService } from './services/service.index';
 
 // COMPONENTES
 import { AppComponent } from './app.component';
-import { LoginGuard } from './guards/login.guard';
 import { RegisterComponent } from './login/register.component';
 import { LoginComponent } from './login/login.component';
 
@@ -33,6 +32,7 @@ import { LoginComponent } from './login/login.component';
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule,
     PagesModule,
     SharedModule,

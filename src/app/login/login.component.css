@@ -9,9 +9,13 @@
 }
 
 .login-box {
-  width: 400px;
   margin: 0 auto;
   text-align: center;
+}
+
+.checkbox {
+  text-align: left;
+  padding-left: 5%;
 }
 
 .login-box .footer {
@@ -40,6 +44,10 @@
 
 .btn {
   border-radius: 22.5px;
+}
+
+.register-box {
+  margin: 0 auto;
 }
 
 .card {

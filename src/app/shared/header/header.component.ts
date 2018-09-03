@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
-import { UserService } from '../../services/user.service';
-import { User } from '../../models/user';
+import { UserService } from '../../services/service.index';
+import { User } from '../../models/user.model';
 import { Global } from '../../services/global';
 
 
@@ -21,26 +21,26 @@ export class HeaderComponent implements OnInit {
   public url: string;
 
   constructor(
-    private _userService: UserService,
-    private _route: ActivatedRoute,
-    private _router: Router,
+    public _userService: UserService,
+    public _route: ActivatedRoute,
+    public _router: Router,
   ) {
     this.user = new User('', '', '', '', '', '', 'Lider', '');
     this.url = Global.url;
   }
 
   ngOnInit() {
-    this.identity = this._userService.getIdentity();
+     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
   }
 
-  logout() {
+  /* logout() {
     localStorage.removeItem('identity');
     localStorage.removeItem('token');
     localStorage.clear();
     this.identity = null;
     this.token = null;
     this._router.navigate(['/login']);
-  }
+  } */
 
 }

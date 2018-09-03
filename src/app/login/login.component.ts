@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 
-import { UserService } from '../services/user.service';
-import { User } from '../models/user';
+import { UserService } from '../services/user/user.service';
+import { User } from '../models/user.model';
 import { Global } from '../services/global';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -21,31 +22,51 @@ export class LoginComponent implements OnInit {
   public errorMessage;
   public alertRegister;
   public url: string;
+  public recuerdame: boolean = false;
+  public email: string;
 
   constructor(
     private _userService: UserService,
     private _route: ActivatedRoute,
     private _router: Router,
   ) {
-    this.user = new User('', '', '', '', '', '', 'Lider', '');
+    this.user = new User('', '', '', '', '', '', 'LIDER', '');
     this.url = Global.url;
   }
 
   ngOnInit() {
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
+    this.email = localStorage.getItem('email') || '';
+    if ( this.email.length > 1 ) {
+      this.recuerdame = true;
+    }
 
     console.log(this.token);
     console.log(this.identity);
   }
 
-  public onSubmit() {
-    console.log(this.user);
+  public onSubmit( forma: NgForm ) {
+    if ( forma.invalid ) {
+      return;
+    }
 
+    let user = new User(null, null, null, forma.value.email, forma.value.password);
+    this._userService.singup(user, forma.value.recuerdame)
+                    .subscribe( res => this._router.navigate(['/dashboard']));
+    /*  .subscribe( () => window.location.href = '#/dashboard' ); */
+
+    }
+
+  /* public onSubmit( forma: NgForm ) {
+    if ( forma.invalid ) {
+      return;
+    }
+    this.user = new User(null, null, null, forma.value.email, forma.value.password);
     // conseguir los datos del usuario identificado
     this._userService.singup(this.user).subscribe(
       response => {
-        const identity = response.user;
+        let identity = response.user;
         this.identity = identity;
 
         if (!this.identity._id) {
@@ -55,9 +76,8 @@ export class LoginComponent implements OnInit {
           localStorage.setItem('identity', JSON.stringify(identity));
           // conseguir el token para enviarselo a cada peticion http
           this._userService.singup(this.user, 'true').subscribe(
-            // tslint:disable-next-line:no-shadowed-variable
-            response => {
-              const token = response.token;
+            res => {
+              const token = res.token;
               this.token = token;
               if (this.token.length <= 0) {
                 alert('El token no se ha generado');
@@ -65,7 +85,7 @@ export class LoginComponent implements OnInit {
                 // crear elemento en el localstorage para tener el token en sesion
                 localStorage.setItem('token', token);
                 this._router.navigate(['/dashboard']);
-                this.user = new User('', '', '', '', '', '', 'Lider', '');
+                this.user = new User('', '', '', '', '', '', 'LIDER', '');
               }
             },
             error => {
@@ -88,14 +108,7 @@ export class LoginComponent implements OnInit {
         }
       }
     );
-  }
-  logout() {
-    localStorage.removeItem('identity');
-    localStorage.removeItem('token');
-    localStorage.clear();
-    this.identity = null;
-    this.token = null;
-    this._router.navigate(['/login']);
-  }
+  } */
+
 
 }
